@@ -26,5 +26,7 @@
   "nopropio": "No tienes vehículos en propiedad.",
   "vuelve": "¡Vuelve cuando quieras!",
   "llavecomprada":"Has Comprado las llaves para tu %s por un precio de %s$",
-  "dollar":"$"
+  "dollar":"$",
+  "givekey":"Recibir llave del vehículo en el que te encuentras.",
+  "helpgivekey":"Id del jugador ( El jugador tiene que estar en el vehículo)"
 }

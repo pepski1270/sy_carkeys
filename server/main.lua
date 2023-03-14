@@ -42,3 +42,21 @@ lib.callback.register('sy_carkeys:getVehicles', function(source)
         return vehicles
     end
 end)
+
+
+lib.addCommand(Keys.CommandGiveKey, {
+    help = locale('givekey'),
+    params = {
+        {
+            name = 'ID',
+           -- type = 'playerId',
+            help = locale('helpgivekey'),
+            optional = true,
+        },
+       
+    },
+    restricted = 'group.admin'
+}, function(source,args)
+    local target = args.ID or source
+    TriggerClientEvent('sy_carkeys:AddKeysCars', target) 
+end)

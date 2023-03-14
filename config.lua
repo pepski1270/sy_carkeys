@@ -6,6 +6,9 @@ Keys.CreateKeyTime = 5000 -- progressBar time
 Keys.ItemName = 'carkeys' -- Name item DB
 Keys.CopyPrice = 50  -- Price to buy copy keys
 Keys.Key = 'U'  -- KeyBind
+
+Keys.CommandGiveKey = 'givekey' -- Command onfly admins command.
+
 Keys.NpcReclameKey = {
     {
         hash = 'a_m_y_beachvesp_02',
