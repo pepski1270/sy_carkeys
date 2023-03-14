@@ -1,8 +1,5 @@
 fx_version 'cerulean'
-
 game 'gta5' 
-
-lua54 'yes'
 
 
 
@@ -23,3 +20,8 @@ server_scripts{
 } 
 
 
+files {
+    'locales/*.json'
+}
+
+lua54 'yes'
