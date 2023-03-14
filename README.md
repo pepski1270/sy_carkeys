@@ -1,5 +1,5 @@
-![image|673x500](upload://AwbppBx02Ic5aIYUbH3q3xCpC6k.png)
-
+[![image|673x500](upload://AwbppBx02Ic5aIYUbH3q3xCpC6k.png)
+](https://forum.cfx.re/uploads/default/original/4X/f/f/f/fff19d1a25351b571a6d597fd8128ff511bd6558.png)
 
 Hello community!
 
@@ -19,9 +19,9 @@ The script is basically a key system for vehicles that works with the key as an 
 **Added**
 * Command to receive the keys of the vehicle in which you are sitting, ONLY FOR ADMINISTRATORS. ( /givekey  or /givekey ID Player , the player will have to be seated in the vehicle.
     Your self
-![image|522x138](upload://4UiUHikTC0tSC9IhiVB6r8yTOxp.png)
+[![image|522x138](upload://4UiUHikTC0tSC9IhiVB6r8yTOxp.png)](https://forum.cfx.re/uploads/default/original/4X/2/2/6/226611814b70f4b62c24cfdd2ad01d1f7c18f207.png)
  Player Id
-![image|534x149](upload://gnibFYZnryYLWICIfIwoftn1vN7.png)
+[![image|534x149](upload://gnibFYZnryYLWICIfIwoftn1vN7.png)](https://forum.cfx.re/uploads/default/original/4X/7/2/c/72c4da7fefda569ee4aa5281117b8a94d99bb5e9.png)
 
 
 
@@ -39,7 +39,7 @@ Ox Inventory Item
 
 ```
 *carkey.png*
-![carkeys|100x100](upload://sOfPqNWCnNfFfw8rCwuNglnhTkG.png)
+[![carkeys|100x100](upload://sOfPqNWCnNfFfw8rCwuNglnhTkG.png)](https://forum.cfx.re/uploads/default/original/4X/c/9/e/c9eb2c8bf3d52f15a6cc095ec2053a353e0d35a6.png)
 
 Create a copy of the keys of the nearby vehicle. (This can be used in some job's menu.)
 > exports['sy_carkeys']:CarKey()
