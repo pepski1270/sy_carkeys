@@ -73,7 +73,7 @@ AddEventHandler('sy_carkeys:obtenerLlaves', function()
                     return
                 else
                     if lib.progressBar({
-                            duration = 1000,
+                            duration = Keys.CreateKeyTime,
                             label = locale('forjar'),
                             useWhileDead = false,
                             canCancel = false,
