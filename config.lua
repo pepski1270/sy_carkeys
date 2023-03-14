@@ -7,7 +7,7 @@ Keys.ItemName = 'carkeys' -- Name item DB
 Keys.CopyPrice = 50  -- Price to buy copy keys
 Keys.Key = 'U'  -- KeyBind
 
-Keys.CommandGiveKey = 'givekey' -- Command onfly admins command.
+Keys.CommandGiveKey = 'givekey' -- Command onfly admins.
 
 Keys.NpcReclameKey = {
     {
