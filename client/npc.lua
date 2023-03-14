@@ -39,9 +39,7 @@ CreateThread(function()
     end
 end)
 
-function ObtenerKeys()
 
-end
 
 AddEventHandler('sy_carkeys:obtenerLlaves', function()
     local KeyMenu = {}
@@ -51,7 +49,6 @@ AddEventHandler('sy_carkeys:obtenerLlaves', function()
         TriggerEvent('sy_carkeys:Notification', locale('title'), locale('nopropio'), 'alert')
         return
     end
-   -- local count = exports.ox_inventory:Search('count', Keys.ItemName)
     for i = 1, #vehicles do
         local data = vehicles[i]
         local name = GetDisplayNameFromVehicleModel(data.vehicle.model)

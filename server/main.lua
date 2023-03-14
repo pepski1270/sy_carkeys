@@ -6,23 +6,25 @@ local ox_inventory = exports.ox_inventory
 
 RegisterServerEvent('sy_carkeys:KeyOnBuy', function(plate, model)
     if ox_inventory:CanCarryItem(source, Keys.ItemName, 1) then
-        ox_inventory:AddItem(source, Keys.ItemName, 1, {plate = plate, description = locale('key_description',plate,model)})
+        ox_inventory:AddItem(source, Keys.ItemName, 1,
+            { plate = plate, description = locale('key_description', plate, model) })
     end
 end)
 
 
-RegisterServerEvent('sy_carkeys:BuyKeys', function(plate,model)
+RegisterServerEvent('sy_carkeys:BuyKeys', function(plate, model)
     local xPlayer = ESX.GetPlayerFromId(source)
     if xPlayer.getMoney() >= Keys.CopyPrice then
         if ox_inventory:CanCarryItem(source, Keys.ItemName, 1) then
             exports.ox_inventory:RemoveItem(source, 'money', Keys.CopyPrice)
-            ox_inventory:AddItem(source, Keys.ItemName, 1, {plate = plate, description = locale('key_description',plate,model)})
-            TriggerClientEvent('sy_carkeys:Notification', source, locale('title'), locale('llavecomprada',model,Keys.CopyPrice), 'success')
+            ox_inventory:AddItem(source, Keys.ItemName, 1,
+                { plate = plate, description = locale('key_description', plate, model) })
+            TriggerClientEvent('sy_carkeys:Notification', source, locale('title'),
+                locale('llavecomprada', model, Keys.CopyPrice), 'success')
         end
     else
         TriggerClientEvent('sy_carkeys:Notification', source, locale('title'), locale('NoDinero'), 'error')
     end
-    
 end)
 
 lib.callback.register('sy_carkeys:getVehicles', function(source)
@@ -49,14 +51,33 @@ lib.addCommand(Keys.CommandGiveKey, {
     params = {
         {
             name = 'ID',
-           -- type = 'playerId',
             help = locale('helpgivekey'),
             optional = true,
         },
-       
+
     },
     restricted = 'group.admin'
-}, function(source,args)
+}, function(source, args)
     local target = args.ID or source
-    TriggerClientEvent('sy_carkeys:AddKeysCars', target) 
+    TriggerClientEvent('sy_carkeys:AddKeysCars', target)
 end)
+
+
+if Keys.CloseDoorsNPC then
+    AddEventHandler('entityCreated', function(entity)
+        if not DoesEntityExist(entity) then
+            return
+        end
+        local entityType = GetEntityType(entity)
+        if entityType ~= 2 then
+            return
+        end
+        if GetEntityPopulationType(entity) > 5 then
+            return
+        end
+        if math.random() > Keys.OpenDoorProbability then
+            return
+        end
+        SetVehicleDoorsLocked(entity, 2)
+    end)
+end
