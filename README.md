@@ -1,4 +1,11 @@
 
+
+* Added
+
+Command to receive the keys of the vehicle in which you are sitting, ONLY FOR ADMINISTRATORS. 
+- /givekey or /givekey ID Player , the player will have to be seated in the vehicle.
+
+
 * Create a copy of the keys of the nearby vehicle. (This can be used in some job's menu.)
 ```LUA
 
