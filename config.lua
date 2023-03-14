@@ -29,22 +29,16 @@ Keys.NpcReclameKey = {
         blip = true 
 
     },
-    {
-        hash = 'a_m_y_beachvesp_01',
-        pos =  vector3(158.06, 6654.59, 30.67),
-        heading = 133.0,
-        icon = 'fas fa-key',
-        label = locale('cerrajero'),
-        blip = true 
-    },
-    {
-        hash = 'a_m_y_beachvesp_01',
-        pos =   vector3(4520.88, -4521.75, 3.74) ,
-        heading = 116.0,
-        icon = 'fas fa-key',
-        label = locale('cerrajero'),
-        blip = true 
-    }
+  -- Example 
+  --  {
+  --      hash = 'a_m_y_beachvesp_01',
+  --      pos =  vector3(158.06, 6654.59, 30.67),
+  --     heading = 133.0,
+  --     icon = 'fas fa-key',
+  --      label = locale('cerrajero'),
+  --      blip = true 
+  --  },
+
 }
 --Noti
 RegisterNetEvent('sy_carkeys:Notification')
