@@ -40,9 +40,11 @@ Ox Inventory Item
 },
 
 ```
-*carkey.png*
-[![carkeys|100x100](upload://sOfPqNWCnNfFfw8rCwuNglnhTkG.png)](https://forum.cfx.re/uploads/default/original/4X/c/9/e/c9eb2c8bf3d52f15a6cc095ec2053a353e0d35a6.png)
+* *carkey.png*
+
 <img src="https://forum.cfx.re/uploads/default/original/4X/c/9/e/c9eb2c8bf3d52f15a6cc095ec2053a353e0d35a6.png"/>
+
+
 Create a copy of the keys of the nearby vehicle. (This can be used in some job's menu.)
 > exports['sy_carkeys']:CarKey()
 
