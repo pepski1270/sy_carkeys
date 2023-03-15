@@ -1,4 +1,8 @@
 
+Discord  https://discord.gg/AscBqDbZNb
+
+
+
 * Create a copy of the keys of the nearby vehicle. (This can be used in some job's menu.)
 ```LUA
 
