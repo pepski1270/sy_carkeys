@@ -81,7 +81,7 @@ TriggerEvent('sy_carkeys:obtenerLlaves')
  - ox_target  -  https://github.com/overextended/ox_target/releases  
 
   #
-  <sub> <center> Discord https://discord.gg/AscBqDbZNb </center></sub>
+  <sub> <center> Discord https://discord.gg/Vk7eY8xYV2 </center></sub>
   #
 
 
