@@ -4,9 +4,18 @@ lib.locale()
 local ox_inventory = exports.ox_inventory
 
 
-RegisterServerEvent('sy_carkeys:KeyOnBuy', function(plate, model)
+
+
+RegisterServerEvent('sy_carkeys:DeleteKey', function(count,plate,model)
+    exports.ox_inventory:RemoveItem(source, 'carkeys', count,  { plate = plate, description = locale('key_description', plate, model) })
+end)
+
+
+
+
+RegisterServerEvent('sy_carkeys:KeyOnBuy', function(count, plate, model)
     if ox_inventory:CanCarryItem(source, Keys.ItemName, 1) then
-        ox_inventory:AddItem(source, Keys.ItemName, 1,
+        ox_inventory:AddItem(source, Keys.ItemName, count or 1,
             { plate = plate, description = locale('key_description', plate, model) })
     end
 end)
@@ -46,22 +55,6 @@ lib.callback.register('sy_carkeys:getVehicles', function(source)
 end)
 
 
-lib.addCommand(Keys.CommandGiveKey, {
-    help = locale('givekey'),
-    params = {
-        {
-            name = 'ID',
-            help = locale('helpgivekey'),
-            optional = true,
-        },
-
-    },
-    restricted = 'group.admin'
-}, function(source, args)
-    local target = args.ID or source
-    TriggerClientEvent('sy_carkeys:AddKeysCars', target)
-end)
-
 
 if Keys.CloseDoorsNPC then
     AddEventHandler('entityCreated', function(entity)
@@ -75,9 +68,60 @@ if Keys.CloseDoorsNPC then
         if GetEntityPopulationType(entity) > 5 then
             return
         end
-        if math.random() > Keys.OpenDoorProbability then
-            return
+        if Keys.DoorProbability then
+            if math.random() > Keys.OpenDoorProbability then
+                return
+            end
         end
+
         SetVehicleDoorsLocked(entity, 2)
+
     end)
 end
+
+--Commands
+
+lib.addCommand(Keys.CommandGiveKey, {
+    help = locale('givekey'),
+    params = {
+        {
+            name = 'ID',
+            help = locale('helpgivekey'),
+            optional = true,
+        },
+        {
+            name = 'count',
+            help = 'cantidad',
+            optional = true,
+        },
+
+    },
+    restricted = 'group.admin'
+}, function(source, args)
+    local id = args.ID or source
+    TriggerClientEvent('sy_carkeys:AddKeysCars', id, args.count or 1)
+end)
+
+
+lib.addCommand(Keys.CommandDelKey, {
+    help = locale('givekey'),
+    params = {
+        {
+            name = 'id',
+            help = locale('helpgivekey'),
+            optional = true,
+        },
+        {
+            name = 'count',
+            help = 'cantidad',
+            optional = true,
+        },
+
+    },
+    restricted = 'group.admin'
+}, function(source, args)
+    local id = args.ID or source
+    TriggerClientEvent('sy_carkeys:DeleteClientKey', id, args.count )
+end)
+
+

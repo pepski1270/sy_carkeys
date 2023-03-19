@@ -17,9 +17,9 @@
 #
 #
 #  <center>**Commands Admins**</center>
-* /givekey [ID] - With this command, you can obtain a key for the vehicle you are currently in, or you can use the ID of a player who is in a vehicle to give them a key to that vehicle.
+* **/givekey [ID]** - *With this command, you can obtain a key for the vehicle you are currently in, or you can use the ID of a player who is in a vehicle to give them a key to that vehicle.*
 
-* /delkey [ID] - With this command, you can delete the key for the vehicle you are currently in.
+* **/delkey [ID]** - *With this command, you can delete the key for the vehicle you are currently in.*
 
 # 
 #
@@ -41,7 +41,9 @@ TriggerEvent('sy_carkeys:DeleteClientKey', count)
 ```
 * To delete specific keys:
 ```LUA
-local model = GetEntityModel(playerVehicle)
+local ped = PlayerPedId()
+local vehicle = GetVehiclePedIsUsing(ped)
+local model = GetEntityModel(vehicle)
 local name = GetDisplayNameFromVehicleModel(model)
 TriggerServerEvent('sy_carkeys:DeleteKey', count, plate, name)  
 ```
@@ -49,10 +51,17 @@ TriggerServerEvent('sy_carkeys:DeleteKey', count, plate, name)
 ```LUA
 TriggerEvent('sy_carkeys:obtenerLlaves')
 ```
-
+* LockPick:
+```LUA
+exports['sy_carkeys']:LockPick()
+```
+* HotWire:
+```LUA
+exports['sy_carkeys']:HotWire()
+```
 #
 #
-#  <center>**Ox inventory ITEM's**</center>
+#  <center>**Ox inventory Item's**</center>
 ```LUA
 ['carkeys'] = {
 	label = 'Car Key',
@@ -63,16 +72,27 @@ TriggerEvent('sy_carkeys:obtenerLlaves')
 ['ganzua'] = {
 	label = 'Lockpick',
 	weight = 25,
-	stack = true
+	stack = true,
+	client = {
+		export = 'sy_carkeys.LockPick'
+	}
 },
 
 ['alicates'] = {
 	label = 'Wire Cutters',
 	weight = 50,
-	stack = true
+	stack = true,
+	client = {
+		export = 'sy_carkeys.HotWire'
+	}
 },
 
  ```
+#
+#
+# <center> **Preview**</center>
+ * keys and menu recovery - https://streamable.com/akf84k
+ * LockPick & HotWire - https://streamable.com/nps2uq
 #
 #
 # <center> **Dependencies**</center>
@@ -83,6 +103,5 @@ TriggerEvent('sy_carkeys:obtenerLlaves')
   #
   <sub> <center> Discord https://discord.gg/Vk7eY8xYV2 </center></sub>
   #
-
 
 

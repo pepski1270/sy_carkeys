@@ -28,5 +28,16 @@
   "llavecomprada":"Has Comprado las llaves para tu %s por un precio de %s$",
   "dollar":"$",
   "givekey":"Recibir llave del vehículo en el que te encuentras.",
-  "helpgivekey":"Id del jugador ( El jugador tiene que estar en el vehículo)"
+  "helpgivekey":"Id del jugador ( El jugador tiene que estar en el vehículo)",
+  "incar":"Debes estar en un vehiculo para poder encender o apagar el motor.",
+  "LockPickTitle":"Forzar cerradura",
+  "LockPickFail":"Has fallado, inténtalo de nuevo. Pero ten cuidado la próxima vez.",
+  "LockPickProgress":"Forzando vehículo",
+  "LockPickNerbyCar":"Debes estar cerca de un vehículo para forzarlo...",
+  "NoLocPick":"Este vehiculo esta abierto....",
+  "HotWireTitle": "Hotwiring",
+  "HotWireFail": "Has fallado, intenta de nuevo",
+  "HotWireInCar": "Debes estar dentro de un vehículo para hacer un hotwire."
+  
+
 }
