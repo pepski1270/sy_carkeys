@@ -84,14 +84,14 @@ function LucesLocas(closet, prop)
 end
 
 RegisterNetEvent('sy_carkeys:AddKeysCars')
-AddEventHandler('sy_carkeys:AddKeysCars', function(count)
+AddEventHandler('sy_carkeys:AddKeysCars', function()
     local ped = cache.ped
     local playerVehicle = GetVehiclePedIsIn(ped, false)
     if playerVehicle ~= 0 then
         local vehicleProps = lib.getVehicleProperties(playerVehicle)
         local model = GetEntityModel(playerVehicle)
         local name = GetDisplayNameFromVehicleModel(model)
-        TriggerServerEvent('sy_carkeys:KeyOnBuy', count, vehicleProps.plate, name)
+        TriggerServerEvent('sy_carkeys:KeyOnBuy',  vehicleProps.plate, name)
     else
         TriggerEvent('sy_carkeys:Notification', locale('title'), locale('dentrocar'), 'error')
     end
