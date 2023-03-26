@@ -53,7 +53,7 @@ local ped = PlayerPedId()
 local vehicle = GetVehiclePedIsUsing(ped)
 local model = GetEntityModel(vehicle)
 local name = GetDisplayNameFromVehicleModel(model)
-TriggerServerEvent('sy_carkeys:KeyOnBuy', count, plate, name)
+TriggerServerEvent('sy_carkeys:KeyOnBuy', plate, name)
 ```
 * To open the key recovery menu:
 ```LUA
