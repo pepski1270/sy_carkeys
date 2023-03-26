@@ -13,9 +13,9 @@ end)
 
 
 
-RegisterServerEvent('sy_carkeys:KeyOnBuy', function(count, plate, model)
+RegisterServerEvent('sy_carkeys:KeyOnBuy', function( plate, model)
     if ox_inventory:CanCarryItem(source, Keys.ItemName, 1) then
-        ox_inventory:AddItem(source, Keys.ItemName, count or 1,
+        ox_inventory:AddItem(source, Keys.ItemName, 1,
             { plate = plate, description = locale('key_description', plate, model) })
     end
 end)
