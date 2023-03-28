@@ -62,6 +62,21 @@ local model = GetEntityModel(vehicle)
 local name = GetDisplayNameFromVehicleModel(model)
 TriggerServerEvent('sy_carkeys:DeleteKey', count, plate, name)  
 ```
+<<<<<<< HEAD
+=======
+Another Create key
+```LUA
+local ped = PlayerPedId()
+local vehicle = GetVehiclePedIsUsing(ped)
+local model = GetEntityModel(vehicle)
+local name = GetDisplayNameFromVehicleModel(model)
+TriggerServerEvent('sy_carkeys:KeyOnBuy', plate, name)
+```
+* To open the key recovery menu:
+```LUA
+TriggerEvent('sy_carkeys:obtenerLlaves')
+```
+>>>>>>> d9bd6c7e02d5c40df9d6286f5bfa29460cbdd948
 * LockPick:
 ```LUA
 exports['sy_carkeys']:LockPick()
