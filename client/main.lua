@@ -139,11 +139,7 @@ AddEventHandler('sy_carkeys:AddKeysCars', function()
         local vehicleProps = lib.getVehicleProperties(playerVehicle)
         local model = GetEntityModel(playerVehicle)
         local name = GetDisplayNameFromVehicleModel(model)
-<<<<<<< HEAD
         TriggerServerEvent('sy_carkeys:CreateKey', vehicleProps.plate, name)
-=======
-        TriggerServerEvent('sy_carkeys:KeyOnBuy',  vehicleProps.plate, name)
->>>>>>> d9bd6c7e02d5c40df9d6286f5bfa29460cbdd948
     else
         TriggerEvent('sy_carkeys:Notification', locale('title'), locale('dentrocar'))
     end
