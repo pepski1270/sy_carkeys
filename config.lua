@@ -1,60 +1,84 @@
+--<-------------------------------------->--
+--[[    
+▒█▀▀▀█ ▒█░░▒█ 　 ▒█▀▀█ ░█▀▀█ ▒█▀▀█ ▒█░▄▀ ▒█▀▀▀ ▒█░░▒█ ▒█▀▀▀█ 
+░▀▀▀▄▄ ▒█▄▄▄█ 　 ▒█░░░ ▒█▄▄█ ▒█▄▄▀ ▒█▀▄░ ▒█▀▀▀ ▒█▄▄▄█ ░▀▀▀▄▄ 
+▒█▄▄▄█ ░░▒█░░ 　 ▒█▄▄█ ▒█░▒█ ▒█░▒█ ▒█░▒█ ▒█▄▄▄ ░░▒█░░ ▒█▄▄▄█]]
+--<-------------------------------------->--
 lib.locale()
+
 Keys = {}
 
-Keys.Debug = false              -- Prints and commands for developers.
-
-Keys.Distance = 5               -- Distance to open or close.
-
-Keys.DistanceCreate = 5         -- Distance to create key.
-
+-- Debug
+Keys.Debug = false             -- Prints and commands for developers.
+--<-------------------------------------->--
+Keys.Distance = 5              -- Distance to open or close.
+Keys.DistanceCreate = 5        -- Distance to create key.
+--<-------------------------------------->--
+-- Time.
 Keys.CreateKeyTime = 1000       -- progressBar time.
-
-Keys.ItemName = 'carkeys'       -- Name item.
-
+--<-------------------------------------->--
+-- Items.
+Keys.ItemName = 'carkeys'       -- Key Item.
+Keys.ItemPlate = 'plate'        -- Plate item.
+--<-------------------------------------->--
+-- Prices 
 Keys.CopyPrice = 50             -- Price to buy copy keys.
-
+Keys.PriceItemPlate = 1500      -- Price to change plate number
+--<-------------------------------------->--
+-- KeyBind 
 Keys.KeyOpenClose = 'U'         -- KeyBind Open / Close.
-
 Keys.KeyToggleEngine = 'M'      -- KeyBind Open / Close.
-
-Keys.CommandGiveKey = 'givekey' -- Command onfly admins .
-
-Keys.CommandDelKey = 'delkey'   -- Command onfly admins .
-
+--<-------------------------------------->--
+-- Command only admins .
+Keys.CommandGiveKey = 'givekey' -- Give Key 
+Keys.CommandDelKey = 'delkey'   -- Delete Key
+--<-------------------------------------->--
+-- Car Options 
 Keys.Engine = true              -- With this you will maintain control of the engine in the vehicle and you will only be able to start the engine with the keys.
-
-Keys.OnExitCar = false          -- (Experimental) Its purpose is to allow, if the vehicle is running and the "F" key is held down, the engine will continue running. If the "F" key is pressed once and released, the engine will turn off. Initially, this function should only work if the vehicle is running.
--- NPC
-
+Keys.OnExitCar = true           -- (Car key  necessary) Its purpose is to allow, if the vehicle is running and the "F" key is hold down, the engine will continue running. If the "F" key is pressed once and released, the engine will turn off. Initially, this function should only work if the vehicle is running.
+Keys.CloseDoorsNPC = false       -- Close All NPC Cars Doors on create Entity.
+Keys.DoorProbability = true     -- Probability of finding an open door. (Netx Update)
+Keys.OpenDoorProbability = 1.0  -- Min 0.0 , Max 1.0.
+--<-------------------------------------->--
+--[[
+▒█▄░▒█ ▒█▀▀█ ▒█▀▀█ 
+▒█▒█▒█ ▒█▄▄█ ▒█░░░ 
+▒█░░▀█ ▒█░░░ ▒█▄▄█]]
+--<-------------------------------------->--
 Keys.NpcReclameKey = {
     {
         hash = 'a_m_y_beachvesp_02',
+        PedScenario = "WORLD_HUMAN_GUARD_STAND",
         pos = vector3(-56.4195, -1098.47, 25.422),
         heading = 25.75,
         icon = 'fas fa-key',
         label = locale('cerrajero'),
-        blip = true
+        debug = false,
+        blip = true,    
+        BuyKey =   true, 
+        BuyPlate = false  
     },
+
+    -- This to buy Plate Change   NO BLIP NO KEYS.
     {
-        hash = 'a_m_y_beachvesp_01',
-        pos = vector3(1702.8302, 4917.1963, 41.2240),
-        heading = 151.1461,
-        icon = 'fas fa-key',
-        label = locale('cerrajero'),
-        blip = true
+        hash = 'a_m_y_juggalo_01',
+        PedScenario = "WORLD_HUMAN_DRUG_DEALER",
+        pos = vector3(1710.6031, 4927.1226, 41.2596 ),
+        heading = 61.9146,
+        icon = 'fas fa-poo',
+        label = 'The license plate man',
+        debug = false,
+        blip = false,       
+        BuyKey =   false, 
+        BuyPlate = true  
     },
-
 }
-
-
-Keys.CloseDoorsNPC = true      -- Close All NPC Cars Doors on create Entity.
-
-Keys.DoorProbability = true    -- Probability of finding an open door. (Netx Update)
-
-Keys.OpenDoorProbability = 1.0 --  Min 0.0 , Max 1.0.
-
--- LockPick and HotWire
-
+--<-------------------------------------->--
+--[[
+▒█░░░ █▀▀█ █▀▀ █░█ ▒█▀▀█ ░▀░ █▀▀ █░█ 　 █▀▀█ █▀▀▄ █▀▀▄ 　 ▒█░▒█ █▀▀█ ▀▀█▀▀ ▒█░░▒█ ░▀░ █▀▀█ █▀▀ 
+▒█░░░ █░░█ █░░ █▀▄ ▒█▄▄█ ▀█▀ █░░ █▀▄ 　 █▄▄█ █░░█ █░░█ 　 ▒█▀▀█ █░░█ ░░█░░ ▒█▒█▒█ ▀█▀ █▄▄▀ █▀▀ 
+▒█▄▄█ ▀▀▀▀ ▀▀▀ ▀░▀ ▒█░░░ ▀▀▀ ▀▀▀ ▀░▀ 　 ▀░░▀ ▀░░▀ ▀▀▀░ 　 ▒█░▒█ ▀▀▀▀ ░░▀░░ ▒█▄▀▄█ ▀▀▀ ▀░▀▀ ▀▀▀]]
+--<-------------------------------------->--
 Keys.LockPick = {
     {
         enable = true,           -- Enable o disable LockPick
@@ -63,7 +87,7 @@ Keys.LockPick = {
         SkillCheck = true,       -- If it's false, a progress bar will be used.
         TimeProgress = 2000,
         Skills = { 
-            { {areaSize = 60, speedMultiplier = 1},{areaSize = 60, speedMultiplier = 0.5},{areaSize = 60, speedMultiplier = 1},{areaSize = 60, speedMultiplier = 0.5},{areaSize = 60, speedMultiplier = 1}, }, { '1', '2','3','4','5'}
+            { {areaSize = 60, speedMultiplier = 1},{areaSize = 60, speedMultiplier = 0.5} ,{areaSize = 60, speedMultiplier = 0.5},{areaSize = 60, speedMultiplier = 0.5}}, { '1', '2', '3', '4' }
         },
         animDict = "anim@amb@clubhouse@tutorial@bkr_tut_ig3@",      
         anim = "machinic_loop_mechandplayer",
@@ -87,14 +111,19 @@ Keys.HotWire = {
     }
 }
 
-
---Notification
-
+--<-------------------------------------->--
+--[[
+▒█▄░▒█ █▀▀█ ▀▀█▀▀ ░▀░ █▀▀ ░▀░ █▀▀ █▀▀█ ▀▀█▀▀ ░▀░ █▀▀█ █▀▀▄ 
+▒█▒█▒█ █░░█ ░░█░░ ▀█▀ █▀▀ ▀█▀ █░░ █▄▄█ ░░█░░ ▀█▀ █░░█ █░░█ 
+▒█░░▀█ ▀▀▀▀ ░░▀░░ ▀▀▀ ▀░░ ▀▀▀ ▀▀▀ ▀░░▀ ░░▀░░ ▀▀▀ ▀▀▀▀ ▀░░▀]]
+--<-------------------------------------->--
 RegisterNetEvent('sy_carkeys:Notification')
-AddEventHandler('sy_carkeys:Notification', function(title, msg, type)
+AddEventHandler('sy_carkeys:Notification', function(title, msg)
     lib.notify({
         title = title,
         description = msg,
-        type = type
+        position = 'top-right',
+        icon = 'key',
+        iconColor = '#edde58'
     })
 end)
